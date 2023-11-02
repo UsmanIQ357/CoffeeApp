@@ -3,11 +3,16 @@ var theStream;
 var theRecorder;
 var recordedChunks = [];
 
-function getUserMedia(constraints) {
-  // if Promise-based API is available, use it
-  if (navigator.mediaDevices) {
-    return navigator.mediaDevices.getUserMedia(constraints);
+// This function initializes user media
+function getUserMedia(options, successCallback, failureCallback) {
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    return navigator.mediaDevices.getUserMedia(options)
+      .then(successCallback)
+      .catch(failureCallback);
   }
+  throw new Error('User Media API not supported.');
+}
+
     
   // otherwise try falling back to old, possibly prefixed API...
   var legacyApi = navigator.getUserMedia || navigator.webkitGetUserMedia ||
