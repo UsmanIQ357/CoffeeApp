@@ -44,6 +44,8 @@ function getStream (type) {
       alert('Error: ' + err);
     });
 
+}
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker
