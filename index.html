@@ -8,18 +8,6 @@
     <link rel="manifest" href="manifest.json">
     <!-- ios support -->
 
-<div class="columns">
-  <div class="column">
-    <p><button type="button" onclick="getStream('video')">Grab video</button></p>
-    
-    <video controls autoplay style="height:180px; width: 240px;"></video>
-  </div>
-  <div class="column">
-    <p><button type="button" onclick="getStream('audio')">Grab audio</button></p>
-    
-    <audio controls></audio>
-  </div>
-</div>
     
     <meta name="apple-mobile-web-app-status-bar" content="#db4938">
     <meta name="theme-color" content="#db4938">
@@ -35,6 +23,18 @@
           <li>Blog</li>
         </ul>
       </nav>
+      <div class="columns">
+  <div class="column">
+    <p><button type="button" onclick="getStream('video')">Grab video</button></p>
+    
+    <video controls autoplay style="height:180px; width: 240px;"></video>
+  </div>
+  <div class="column">
+    <p><button type="button" onclick="getStream('audio')">Grab audio</button></p>
+    
+    <audio controls></audio>
+  </div>
+</div>
       <div class="container"></div>
     </main>
     <script src="js/app.js"></script>
