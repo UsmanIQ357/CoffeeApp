@@ -11,9 +11,6 @@ function getUserMedia(options, successCallback, failureCallback) {
       .catch(failureCallback);
   }
   throw new Error('User Media API not supported.');
-}
-
-    
   // otherwise try falling back to old, possibly prefixed API...
   var legacyApi = navigator.getUserMedia || navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia || navigator.msGetUserMedia;
