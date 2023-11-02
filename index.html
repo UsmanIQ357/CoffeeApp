@@ -35,6 +35,18 @@
     <audio controls></audio>
   </div>
 </div>      
+
+      <video autoplay style="height:180px; width: 240px;" poster="https://image.freepik.com/free-icon/video-camera-symbol_318-40225.png"></video>
+        <p><button onclick="getStream()">Grab video & start recording</button></p>
+        <!-- Updated button for stopping the recording and saving to cache -->
+        <p><button onclick="stopRecordingAndSaveToCache()">Stop & Save to Cache</button></p>
+        <p><button onclick="downloadFromCache()">Download Video from Cache</button></p>
+        <div class="container">
+            <p>Current permission status is <b id="status">unavailable</b>.</p>
+            <p><button onclick="requestPermission()">Request permission</button></p>
+            <p><button onclick="nonPersistentNotification()">Non-persistent notification</button></p>
+            <p><button onclick="persistentNotification()">Persistent notification</button></p>   
+        </div>
     </main>
     
     <script src="js/app.js"></script>
