@@ -9,6 +9,8 @@ if ("serviceWorker" in navigator) {
       .then(res => console.log("service worker registered"))
       .catch(err => console.log("service worker not registered", err));
 
+  }
+}
 
 function getUserMedia(constraints) {
   // if Promise-based API is available, use it
@@ -25,9 +27,6 @@ function getUserMedia(constraints) {
     return new Promise(function (resolve, reject) {
       legacyApi.bind(navigator)(constraints, resolve, reject);
     });
-  }
-}
-
 function getStream (type) {
   if (!navigator.mediaDevices && !navigator.getUserMedia && !navigator.webkitGetUserMedia &&
     !navigator.mozGetUserMedia && !navigator.msGetUserMedia) {
