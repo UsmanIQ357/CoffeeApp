@@ -23,34 +23,33 @@ function getUserMedia(options, successCallback, failureCallback) {
   }
 }
 
-function getStream (type) {
-  if (!navigator.mediaDevices && !navigator.getUserMedia && !navigator.webkitGetUserMedia &&
-    !navigator.mozGetUserMedia && !navigator.msGetUserMedia) {
+// This function is called to start the media stream and recording
+function getStream() {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     alert('User Media API not supported.');
     return;
   }
 
-  var constraints = {};
-  constraints[type] = true;
-  
-  getUserMedia(constraints)
-    .then(function (stream) {
-      var mediaControl = document.querySelector(type);
-      
-      if ('srcObject' in mediaControl) {
-        mediaControl.srcObject = stream;
-      } else if (navigator.mozGetUserMedia) {
-        mediaControl.mozSrcObject = stream;
-      } else {
-        mediaControl.src = (window.URL || window.webkitURL).createObjectURL(stream);
-      }
-      
-      mediaControl.play();
-    })
-    .catch(function (err) {
-      alert('Error: ' + err);
-    });
+  var constraints = { video: true, audio: true };
+  getUserMedia(constraints, function (stream) {
+    var mediaControl = document.querySelector('video');
+    
+    // Older browsers may not have srcObject
+    if ("srcObject" in mediaControl) {
+      mediaControl.srcObject = stream;
+    } else {
+      // Avoid using this in new browsers, as it is going away.
+      mediaControl.src = window.URL.createObjectURL(stream);
+    }
+    
+    theStream = stream;
+    setupRecorder(stream); // This is a new function to encapsulate the recorder setup
+  }, function (err) {
+    alert('Error: ' + err);
+  });
+}
 
+function setupRecorder(stream) {
 }
 
 if ("serviceWorker" in navigator) {
