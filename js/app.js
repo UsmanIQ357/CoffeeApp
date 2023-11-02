@@ -1,3 +1,8 @@
+// Define global variables to keep track of the stream and recorder
+var theStream;
+var theRecorder;
+var recordedChunks = [];
+
 function getUserMedia(constraints) {
   // if Promise-based API is available, use it
   if (navigator.mediaDevices) {
