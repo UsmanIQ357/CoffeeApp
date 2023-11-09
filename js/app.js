@@ -228,7 +228,4 @@ function rotationHandler(rotation) {
 
 function intervalHandler(interval) {
   document.getElementById("moInterval").innerHTML = interval;
-}
-
-
-// ... Rest of your code such as service worker registration and notifications ...
+}// ... Rest of your code such as service worker registration and notifications ...
