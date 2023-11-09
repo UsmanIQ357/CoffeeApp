@@ -45,6 +45,19 @@ h1 {
   margin: auto;
   padding: 1rem 0;
 }
+/*  DEVICE POSITION CONTAINER */
+.container {
+  perspective: 300;
+  -webkit-perspective: 300;
+}
+
+#imgLogo {
+  width: 275px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 15px;
+}
 .card {
   display: flex;
   align-items: center;
