@@ -54,7 +54,24 @@
 </p>
 
 <p>Open the example in another tab and change the value there to see the synchronization via <code>storage</code> event.</p>
-<div id="target"></div>      
+<div id="target"></div>   
+
+      <div class="columns">
+  <div class="column">
+    <button class="btn-file">
+      Choose some files to read<br>(File API) <input type="file" onchange="readFiles(this.files)" multiple>
+    </button>
+    
+    <p>Number of selected files: <b id="count">N/A</b></p>
+  </div>
+  <div class="column">
+    <button class="btn-file" onclick="writeFile()">
+      Choose file to create or overwrite<br>(Native File System API)
+    </button>
+  </div>
+</div>
+
+<ul id="target"></ul>
       
     </main>
     
